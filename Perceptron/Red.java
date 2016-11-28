@@ -1,4 +1,6 @@
-package Perceptron;
+package redneuronal;
+
+import java.io.Serializable;
 
 //This file is part of Red-Neuronal.
 //
@@ -20,12 +22,13 @@ import java.util.ArrayList;
  * Representa a una red neuronal (ver Perceptron Multicapa)
  * 
  * @author AIR
- * @version 1.0
- * @date Junio 2016
+ * @version 1.1
+ * @date Noviembre 2016
  * @see Neurona
  * @see Sinapsis
  */
-public class Red {
+public class Red implements Serializable{
+	private static final long serialVersionUID = 3286199902474469057L;
 	private double RAZON_APRENDIZAJE;
 	private double MOMENTO; 
 	
@@ -124,7 +127,7 @@ public class Red {
 		for(int i=0; i<network.get(network.size()-1).length;i++) {
 			network.get(network.size()-1)[i].calculaGradientesNeuronaSalida(valoresObjetivo[i]);
 		}
-		//Calcular el gradiente de las neuronas en las capas oculta
+		//Calcular el gradiente de las neuronas en las capas ocultas
 		for(int i = network.size()-2; i>0; i--) {
 			for(int j = 0; j<network.get(i).length; j++){
 				network.get(i)[j].calculaGradientesNeuronaOculta();
@@ -138,5 +141,9 @@ public class Red {
 			}
 		}
 	}
+	
+	
+	public double getMOMENTO() {return MOMENTO;}
+	public double getRAZON_APRENDIZAJE() {return RAZON_APRENDIZAJE;}
 
 }

@@ -1,4 +1,6 @@
-package Perceptron;
+package redneuronal;
+
+import java.io.Serializable;
 
 //This file is part of Red-Neuronal.
 //
@@ -24,7 +26,8 @@ import java.util.ArrayList;
  * @date Julio 2016
  * @see Sinapsis
  */
-public class Neurona {
+public class Neurona implements Serializable{
+	private static final long serialVersionUID = 8729854615844306332L;
 	//Son conexiones a otras neuronas. En el caso de que sea neurona de entrada, se obvia la lista de entradas.
 	public ArrayList<Sinapsis> entradas, salidas;
 	private double resultado;
